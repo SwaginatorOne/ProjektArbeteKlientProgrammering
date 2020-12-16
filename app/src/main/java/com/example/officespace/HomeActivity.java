@@ -8,9 +8,11 @@ import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity
 {
+
+    //HEjsnakd
     private Button timeButton;
     private Button profileButton;
-//hej jag heter bengt och jag jobbar i en knappfabrik
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
