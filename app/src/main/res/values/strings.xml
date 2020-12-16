@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">OfficeSpace</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="welcome_textField">Welcome</string>
+    <string name="no_account">No account?</string>
+    <string name="home">Home</string>
+    <string name="mileage">Mileage</string>
+    <string name="time">Time</string>
+    <string name="profile">Profile</string>
+    <string name="start_time">Start</string>
+    <string name="start_break">Break</string>
+    <string name="stop_time">Stop</string>
+    <string name="report">Report</string>
+    <string name="hours_worked">Hours worked:</string>
+    <string name="break_taken">Break taken:</string>
+    <string name="overtime">Overtime</string>
+</resources>

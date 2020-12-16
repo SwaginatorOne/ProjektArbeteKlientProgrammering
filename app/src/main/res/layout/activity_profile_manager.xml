@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileManagerActivity">
+
+    <View
+        android:id="@+id/mainWave"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/ic_mainwave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_Manager_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="@string/profile"
+        android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_profile"
+        android:layout_width="173dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_Manager_home"
+        app:srcCompat="@drawable/ic_person" />
+
+    <TextView
+        android:id="@+id/textField_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:text="Robin Törnblom"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_profile" />
+
+    <TextView
+        android:id="@+id/textField_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="130dp"
+        android:text="19roto01@hig.se"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField_username" />
+
+    <TextView
+        android:id="@+id/textField_phonenumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="130dp"
+        android:text="+4673-00 11 22"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField_email" />
+
+    <TextView
+        android:id="@+id/textField_profile_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="130dp"
+        android:text="Administrator"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField_phonenumber" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="156dp"
+        android:background="@drawable/button_round_corner_shape"
+        android:text="Edit profile"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField_profile_type" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_logout"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="156dp"
+        android:background="@drawable/button_round_corner_shape"
+        android:text="logout"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_edit_profile" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

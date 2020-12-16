@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimeManagerActivity">
+
+    <View
+        android:id="@+id/mainWave"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/ic_mainwave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_Manager_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="@string/time"
+        android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_time"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_round_corner_shape"
+        android:text="@string/start_time"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave" />
+
+    <TextView
+        android:id="@+id/textView_start_break"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textfield_round_corner_shape"
+        android:gravity="center"
+        android:hint="00:00"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_start_time" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_break"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_round_corner_shape"
+        android:text="@string/start_break"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_start_time" />
+
+    <TextView
+        android:id="@+id/textView_start_time"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textfield_round_corner_shape"
+        android:gravity="center"
+        android:hint="00:00"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_stop_time"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_round_corner_shape"
+        android:text="@string/stop_time"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_start_break" />
+
+    <TextView
+        android:id="@+id/textView_stop_time"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textfield_round_corner_shape"
+        android:gravity="center"
+        android:hint="00:00"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_start_break" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/textfield_infobox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_stop_time" />
+
+    <TextView
+        android:id="@+id/textField_hours_worked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/hours_worked"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textView_hours_worked_calculated"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:hint="00:00"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textField_break_taken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/break_taken"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textField_hours_worked" />
+
+    <TextView
+        android:id="@+id/textView_break_taken_calculated"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:hint="00:00"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textView_hours_worked_calculated" />
+
+    <TextView
+        android:id="@+id/textField_overtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/overtime"
+        android:textColor="#23003C"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textField_break_taken" />
+
+    <TextView
+        android:id="@+id/textView_overtime_calculated"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:hint="00:00"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textView_break_taken_calculated" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
