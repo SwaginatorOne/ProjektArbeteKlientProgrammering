@@ -10,7 +10,7 @@ public class HomeActivity extends AppCompatActivity
 {
     private Button timeButton;
     private Button profileButton;
-
+//hej jag heter bengt
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
