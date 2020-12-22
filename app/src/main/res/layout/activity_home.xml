@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 <!-- Header-->
     <ImageView
-        android:id="@+id/mainWave_timeManagerActivity"
+        android:id="@+id/mainWave_profileManagerActivity"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:cropToPadding="false"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:text="@string/home"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -44,7 +44,7 @@
         android:padding="16dp"
         android:text="@string/time"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_timeManagerActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/menu_mileage"
@@ -57,7 +57,7 @@
         android:padding="16dp"
         android:text="@string/mileage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_timeManagerActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/menu_report"

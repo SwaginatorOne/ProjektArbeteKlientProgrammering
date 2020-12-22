@@ -117,8 +117,9 @@ public class SignUpActivity extends AppCompatActivity
                                     Log.d(TAG, "onSuccess: user profile is created for " + userID );
                                 }
                             });
-                            Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                         else {
                             Toast.makeText(SignUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
