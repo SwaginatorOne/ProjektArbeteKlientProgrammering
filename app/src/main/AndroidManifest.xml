@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.officespace">
+    package="com.example.Tajming">
 
     <application
         android:allowBackup="true"
@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OfficeSpace">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".ProfileManagerActivity" />
-        <activity android:name=".TimeManagerActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.Tajming.SignUpActivity"></activity>
+        <activity android:name="com.example.Tajming.ProfileManagerActivity" />
+        <activity android:name="com.example.Tajming.TimeManagerActivity" />
+        <activity android:name="com.example.Tajming.HomeActivity" />
+        <activity android:name="com.example.Tajming.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
