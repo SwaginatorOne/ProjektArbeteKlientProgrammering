@@ -16,7 +16,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class ProfileManagerActivity extends AppCompatActivity {
+public class ProfileManagerActivity extends AppCompatActivity
+{
 
     TextView profile_username;
     TextView profile_phone_number;
