@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "826887283925",
+    "project_id": "tajming-5bf85",
+    "storage_bucket": "tajming-5bf85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826887283925:android:04a1d6a807617ee26dae5c",
+        "android_client_info": {
+          "package_name": "com.example.officespace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826887283925-j6kf4l38h3ea5b9jlbngffgftu824st6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDysRGk3DvxmtEKdWmAUjfA3l1-nDyChus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826887283925-j6kf4l38h3ea5b9jlbngffgftu824st6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

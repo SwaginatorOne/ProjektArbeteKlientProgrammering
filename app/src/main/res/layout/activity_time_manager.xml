@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".TimeManagerActivity">
 
-    <View
-        android:id="@+id/mainWave"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/ic_mainwave"
+    <ImageView
+        android:id="@+id/mainWave_timeManagerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/wave_main"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,11 +38,11 @@
         android:layout_height="40dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/button_round_corner_shape"
+        android:background="@drawable/round_corner_purple_gradient_shape"
         android:text="@string/start_time"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_timeManagerActivity" />
 
     <TextView
         android:id="@+id/textView_start_break"
@@ -46,7 +50,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
-        android:background="@drawable/textfield_round_corner_shape"
+        android:background="@drawable/round_corner_border_shape"
         android:gravity="center"
         android:hint="00:00"
         android:textSize="18dp"
@@ -59,7 +63,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_round_corner_shape"
+        android:background="@drawable/round_corner_purple_gradient_shape"
         android:text="@string/start_break"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,12 +75,12 @@
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="60dp"
-        android:background="@drawable/textfield_round_corner_shape"
+        android:background="@drawable/round_corner_border_shape"
         android:gravity="center"
         android:hint="00:00"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_timeManagerActivity" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_stop_time"
@@ -84,7 +88,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_round_corner_shape"
+        android:background="@drawable/round_corner_purple_gradient_shape"
         android:text="@string/stop_time"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +100,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
-        android:background="@drawable/textfield_round_corner_shape"
+        android:background="@drawable/round_corner_border_shape"
         android:gravity="center"
         android:hint="00:00"
         android:textSize="20dp"

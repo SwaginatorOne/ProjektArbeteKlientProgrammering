@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ProfileManagerActivity">
 
-    <View
-        android:id="@+id/mainWave"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/ic_mainwave"
+    <ImageView
+        android:id="@+id/mainWave_timeManagerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/wave_main"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,7 +96,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="156dp"
-        android:background="@drawable/button_round_corner_shape"
+        android:background="@drawable/round_corner_purple_gradient_shape"
         android:text="Edit profile"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +108,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="156dp"
-        android:background="@drawable/button_round_corner_shape"
+        android:background="@drawable/round_corner_purple_gradient_shape"
         android:text="logout"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

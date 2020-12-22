@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OfficeSpace">
-        <activity android:name=".ProfileManagerActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".ProfileManagerActivity" />
         <activity android:name=".TimeManagerActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">

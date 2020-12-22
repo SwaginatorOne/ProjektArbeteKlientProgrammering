@@ -9,7 +9,6 @@ import android.widget.Button;
 public class HomeActivity extends AppCompatActivity
 {
 
-    //HEjsnakd
     private Button timeButton;
     private Button profileButton;
 
