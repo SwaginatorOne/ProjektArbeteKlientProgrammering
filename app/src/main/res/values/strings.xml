@@ -21,4 +21,7 @@
     <string name="phone_number">Phone number</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot your password?</string>
+    <string name="start_location">Start location</string>
+    <string name="stop_location">Stop location</string>
+    <string name="city">City</string>
 </resources>

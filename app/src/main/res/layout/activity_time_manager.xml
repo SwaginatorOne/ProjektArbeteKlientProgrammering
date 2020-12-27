@@ -15,7 +15,7 @@
         android:src="@drawable/wave_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent=".35"
+        app:layout_constraintHeight_percent=".3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,21 +23,33 @@
         android:id="@+id/time_Manager_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         android:text="@string/time"
         android:textColor="@color/white"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/mainWave_profileManagerActivity" />
+
+    <TextView
+        android:id="@+id/textField_current_day_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="currentDay"
+        android:textColor="@color/purple_main"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_Manager_home" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_start_time"
         android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/round_corner_purple_gradient_shape"
         android:text="@string/start_time"
         android:textColor="@color/white"
@@ -73,7 +85,7 @@
         android:id="@+id/textView_start_time"
         android:layout_width="95dp"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="60dp"
         android:background="@drawable/round_corner_border_shape"
         android:gravity="center"

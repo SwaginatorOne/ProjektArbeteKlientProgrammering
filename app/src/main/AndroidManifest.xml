@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OfficeSpace">
-        <activity android:name="com.example.Tajming.SignUpActivity"></activity>
-        <activity android:name="com.example.Tajming.ProfileManagerActivity" />
-        <activity android:name="com.example.Tajming.TimeManagerActivity" />
-        <activity android:name="com.example.Tajming.HomeActivity" />
-        <activity android:name="com.example.Tajming.MainActivity">
+        <activity android:name=".MileageActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".ProfileManagerActivity" />
+        <activity android:name=".TimeManagerActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
