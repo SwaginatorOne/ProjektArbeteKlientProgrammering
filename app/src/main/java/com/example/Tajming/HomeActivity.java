@@ -1,4 +1,4 @@
-package com.example.officespace;
+package com.example.Tajming;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.widget.Button;
 public class HomeActivity extends AppCompatActivity
 {
 
-    //HEjsnakd
     private Button timeButton;
     private Button profileButton;
 
