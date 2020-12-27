@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity
         if(firebaseAuth.getCurrentUser() != null)
         {
             Toast.makeText(this, "User already logged in", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
