@@ -42,7 +42,7 @@ public class TimeManagerActivity extends AppCompatActivity
 
         button_start_time = findViewById(R.id.button_start_time);
         button_stop_time = findViewById(R.id.button_stop_time);
-        textView_start_time = findViewById(R.id.textView_start_time);
+        textView_start_time = findViewById(R.id.textView_starttime);
         textView_stop_time = findViewById(R.id.textView_stop_time);
         textView_hours_worked = findViewById(R.id.textView_hours_worked_calculated);
         textView_current_day = findViewById(R.id.textField_current_day_time);

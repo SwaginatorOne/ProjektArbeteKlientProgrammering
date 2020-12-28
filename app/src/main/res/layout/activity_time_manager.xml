@@ -67,7 +67,7 @@
         android:hint="00:00"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_start_time" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_starttime" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_start_break"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_start_time" />
 
     <TextView
-        android:id="@+id/textView_start_time"
+        android:id="@+id/textView_starttime"
         android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginTop="50dp"

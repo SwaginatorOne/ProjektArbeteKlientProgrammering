@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileManagerActivity">
+
+    <ImageView
+        android:id="@+id/mainWave_profileManagerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/wave_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/report_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/report"
+        android:textColor="@color/white"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/report_home"
+        app:srcCompat="@drawable/ic_report" />
+
+    <TextView
+        android:id="@+id/textField_picked_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/purple_main"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_edit_shift"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_profile"
+        app:layout_constraintVertical_bias="0.004" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_edit_shift"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/round_corner_purple_gradient_shape"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Edit working shift"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_profile"
+        app:layout_constraintVertical_bias="0.904" />
+
+    <TimePicker
+        android:id="@+id/timePicker_starttime"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/timePicker_endtime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.847" />
+
+    <TimePicker
+        android:id="@+id/timePicker_endtime"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTime_edit_break"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.937" />
+
+    <TextView
+        android:id="@+id/textView_endTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/new_end_time"
+        app:layout_constraintBottom_toTopOf="@+id/textView_break"
+        app:layout_constraintEnd_toStartOf="@+id/timePicker_endtime"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.906" />
+
+    <TextView
+        android:id="@+id/textView_break"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/new_break_time"
+        app:layout_constraintBottom_toTopOf="@+id/textView_milage"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTime_edit_break"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.856" />
+
+    <EditText
+        android:id="@+id/editTextTime_edit_break"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber_edit_milage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <EditText
+        android:id="@+id/editTextNumber_edit_milage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.744" />
+
+    <TextView
+        android:id="@+id/textView_starttime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/new_start_time"
+        app:layout_constraintBottom_toTopOf="@+id/textView_endTime"
+        app:layout_constraintEnd_toStartOf="@+id/timePicker_starttime"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.527" />
+
+    <TextView
+        android:id="@+id/textView_milage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/new_milage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNumber_edit_milage"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
+        app:layout_constraintVertical_bias="0.747" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
