@@ -130,7 +130,11 @@ public class TimeManagerActivity extends AppCompatActivity
                     textView_stop_time.setText(stop_time);
                     stop_time_calculator = Instant.now();
                     timeElapsed = Duration.between(start_time_calculator, stop_time_calculator);
-                    textView_hours_worked.setText(timeElapsed.toString());
+                    String hms = String.format("%d:%02d:%02d",
+                            timeElapsed.toHours(),
+                            timeElapsed.toMinutes(),
+                            timeElapsed.getSeconds());
+                    textView_hours_worked.setText(hms);
                     Toast.makeText(TimeManagerActivity.this, "Good job, enjoy your freedom", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -152,8 +156,8 @@ public class TimeManagerActivity extends AppCompatActivity
                 int minutes = (seconds%3600)/60;
                 int secs = seconds%60;
                 String time = String.format(Locale.getDefault(),
-                        "%d:%02d", hours, minutes);
-                textView_start_break.setText(minutes + ":" + secs);
+                        "%02d:%02d", minutes, secs);
+                textView_start_break.setText(time);
                 if (running) {
                     seconds++;
                 }
