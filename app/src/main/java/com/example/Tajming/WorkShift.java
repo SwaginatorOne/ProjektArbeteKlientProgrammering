@@ -17,10 +17,12 @@ public class WorkShift {
     String date;
     String startTime;
     String endTime;
-    int breakTime;
+    String breakTime;
     Map<String, Object> workShift;
+    FirebaseFirestore db;
 
     public WorkShift(){
+       db = FirebaseFirestore.getInstance();
         workShift = new HashMap<>();
     }
     public void setUser(String user) {
@@ -39,12 +41,29 @@ public class WorkShift {
         this.date = date;
         workShift.put("date", date);
     }
-    public void setBreakTime(int breakTime) {
+    public void setBreakTime(String breakTime) {
         this.breakTime = breakTime;
         workShift.put("break", breakTime);
     }
 
     public Map<String, Object> getHashMap(){
         return workShift;
+    }
+
+    public void addToDataBase(){
+        db.collection("work_shifts")
+                .add(workShift)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("TAG","DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error adding document", e);
+                    }
+                });
     }
 }

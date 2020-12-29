@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
@@ -38,9 +40,11 @@ public class TimeManagerActivity extends AppCompatActivity
     int countBreakClicks = 0;
     private int seconds = 0;
     private Boolean running = false;
-    private int totalBreakMin;
     private int totalBreakSec;
+    private int totalBreakMin;
     private int totalBreakHour;
+    private String sb;
+    FirebaseAuth firebaseAuth;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -67,6 +71,9 @@ public class TimeManagerActivity extends AppCompatActivity
         textView_current_day.setText(current_day);
         WorkShift workShift = new WorkShift();
         workShift.setDate(current_day);
+        firebaseAuth = FirebaseAuth.getInstance();
+        userID = firebaseAuth.getCurrentUser().getUid();
+        workShift.setUser(userID);
 
 
         runTimer();
@@ -100,8 +107,10 @@ public class TimeManagerActivity extends AppCompatActivity
                     button_stop_time.setClickable(true);
                     button_start_break.setText("Take break");
                     running = false;
+                    totalBreakHour = totalBreakHour + seconds/3600;
+                    totalBreakMin = totalBreakMin + (seconds%3600)/60;
                     totalBreakSec = totalBreakSec + seconds%60;
-                    String sb = totalBreakSec + " sec";
+                    sb =totalBreakHour + "h, " +  totalBreakMin + "min, " + totalBreakSec + "sec";
                     TextView breakCalculated = (TextView) findViewById(R.id.textView_break_taken_calculated);
                     breakCalculated.setText(sb);
 
@@ -127,6 +136,8 @@ public class TimeManagerActivity extends AppCompatActivity
                     currentDay = false;
                     String stop_time = timeFormat.format(Calendar.getInstance().getTime());
                     workShift.setEndTime(stop_time);
+                    workShift.setBreakTime(sb);
+                    workShift.addToDataBase();
                     textView_stop_time.setText(stop_time);
                     stop_time_calculator = Instant.now();
                     timeElapsed = Duration.between(start_time_calculator, stop_time_calculator);
