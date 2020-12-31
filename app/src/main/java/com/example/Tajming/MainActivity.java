@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity
     TextView new_account;
     ProgressBar progressBar_login;
     FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,7 +52,6 @@ public class MainActivity extends AppCompatActivity
         progressBar_login = findViewById(R.id.progressBar_main);
         firebaseAuth = FirebaseAuth.getInstance();
         progressBar_login.setVisibility(View.INVISIBLE);
-
 
         forgot_password.setOnClickListener(new View.OnClickListener()
         {
@@ -129,7 +134,6 @@ public class MainActivity extends AppCompatActivity
                     password_login.setError("Password must be 6 characters or longer");
                     return;
                 }
-
                 progressBar_login.setVisibility(View.VISIBLE);
 
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
@@ -152,5 +156,21 @@ public class MainActivity extends AppCompatActivity
                 });
             }
         });
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser!=null)
+        {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            //User is not logged in continue with login routine.
+        }
     }
 }

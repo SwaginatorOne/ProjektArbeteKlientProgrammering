@@ -25,9 +25,13 @@
     <string name="stop_location">Stop location</string>
     <string name="city">City</string>
     <string name="total_time_month">Total working time of the month</string>
-    <string name="total_milage_month">Total milage of the month</string>
+    <string name="total_mileage_month">Total mileage of the month</string>
     <string name="new_start_time">Enter changed start time</string>
     <string name="new_end_time">Enter changed end time</string>
     <string name="new_break_time">Enter new break time</string>
-    <string name="new_milage">Enter new milage</string>
+    <string name="new_mileage">Enter new mileage</string>
+    <string name="save_changes">Save changes</string>
+    <string name="remember_user">Remember me</string>
+    <string name="loading">Loading</string>
+
 </resources>

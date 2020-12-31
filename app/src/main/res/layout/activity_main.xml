@@ -23,7 +23,7 @@
           android:id="@+id/textField_welcome"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="40dp"
+          android:layout_marginTop="20dp"
           android:text="@string/welcome"
           android:textColor="#FFFFFF"
           android:textSize="70dp"
@@ -36,7 +36,6 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginStart="32dp"
-          android:layout_marginTop="100dp"
           android:layout_marginEnd="32dp"
           android:background="@drawable/round_corner_border_shape"
           android:drawableStart="@drawable/ic_person"
@@ -46,9 +45,9 @@
           android:inputType="text"
           android:padding="10dp"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintHorizontal_bias="1.0"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/textField_welcome" />
+          app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
       <EditText
           android:id="@+id/editText_Password_main"
@@ -72,12 +71,11 @@
           android:id="@+id/textField_forgot_password_main"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
+          android:layout_marginTop="15dp"
+          android:layout_marginEnd="32dp"
           android:text="@string/forgot_password"
           android:textColor="@color/purple_main"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.498"
-          app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/editText_Password_main" />
 
       <androidx.appcompat.widget.AppCompatButton
@@ -109,14 +107,14 @@
 
       <ProgressBar
           android:id="@+id/progressBar_main"
-          style="?android:attr/progressBarStyle"
           android:layout_width="103dp"
           android:layout_height="107dp"
+          android:indeterminateDrawable="@drawable/progressbar_style"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
-          tools:visibility="invisible" />
+          tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

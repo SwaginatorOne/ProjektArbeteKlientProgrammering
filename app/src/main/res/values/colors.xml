@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple_main">#23003C</color>
     <color name="grey">#ECEAEA</color>
+    <color name="pink">#F709FF</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

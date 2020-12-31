@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -27,6 +28,8 @@ public class ProfileManagerActivity extends AppCompatActivity
     FirebaseFirestore fireStore;
     String userID;
     Button button_logout;
+    Button button_edit_profile;
+    Button button_save_profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,7 +44,15 @@ public class ProfileManagerActivity extends AppCompatActivity
         firebaseAuth = FirebaseAuth.getInstance();
         fireStore = FirebaseFirestore.getInstance();
         button_logout = findViewById(R.id.button_logout_profile_manager);
+        button_edit_profile = findViewById(R.id.button_edit_profile);
+        button_save_profile = findViewById(R.id.button_edit_profile_save);
 
+        profile_username.setFocusable(false);
+        profile_phone_number.setFocusable(false);
+        profile_email.setFocusable(false);
+        profile_full_name.setFocusable(false);
+
+        button_save_profile.setVisibility(View.GONE);
         userID = firebaseAuth.getCurrentUser().getUid();
 
         DocumentReference documentReference = fireStore.collection("users").document(userID);
@@ -66,6 +77,36 @@ public class ProfileManagerActivity extends AppCompatActivity
                 Intent intent = new Intent(ProfileManagerActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        button_edit_profile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                button_edit_profile.setVisibility(View.GONE);
+                button_logout.setVisibility(View.INVISIBLE);
+                button_save_profile.setVisibility(View.VISIBLE);
+                profile_username.setFocusableInTouchMode(true);
+                profile_phone_number.setFocusableInTouchMode(true);
+                profile_email.setFocusableInTouchMode(true);
+                profile_full_name.setFocusableInTouchMode(true);
+            }
+        });
+
+        button_save_profile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                button_edit_profile.setVisibility(View.VISIBLE);
+                button_logout.setVisibility(View.VISIBLE);
+                button_save_profile.setVisibility(View.GONE);
+                profile_username.setFocusable(false);
+                profile_phone_number.setFocusable(false);
+                profile_email.setFocusable(false);
+                profile_full_name.setFocusable(false);
             }
         });
     }
