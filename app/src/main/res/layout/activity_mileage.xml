@@ -36,100 +36,105 @@
         android:id="@+id/textField_current_day_mileage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="currentDay"
         android:textColor="@color/purple_main"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_MileageActivity" />
-
-    <TextView
-        android:id="@+id/textView_start_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/start_location"
-        android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainWave_MileageActivity" />
 
-    <EditText
-        android:id="@+id/editText_start_address_mileage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:hint="Start address"
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="428dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_start_address" />
+        app:layout_constraintTop_toBottomOf="@+id/calendarView">
 
-    <TextView
-        android:id="@+id/textView_start_address_city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/city"
-        android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_start_address_mileage" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText_start_address_city_mileage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="10dp"
-        android:hint="City"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_start_address_city" />
+            <EditText
+                android:id="@+id/editText_start_address_mileage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/round_corner_border_shape"
+                android:drawableStart="@drawable/ic_play_arrow"
+                android:hint="@string/start_location"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView_stop_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="@string/stop_location"
-        android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_start_address_city_mileage" />
+            <EditText
+                android:id="@+id/editText_stop_address_mileage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/round_corner_border_shape"
+                android:drawableStart="@drawable/ic_flag"
+                android:hint="@string/stop_location"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_start_address_mileage" />
 
-    <EditText
-        android:id="@+id/editText_stop_address_mileage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Stop address"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_stop_address" />
+            <EditText
+                android:id="@+id/editText_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/round_corner_border_shape"
+                android:drawableStart="@drawable/ic__swap_horiz"
+                android:hint="@string/distance"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_stop_address_mileage" />
 
-    <TextView
-        android:id="@+id/textView_stop_address_city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/city"
-        android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_stop_address_mileage" />
+            <EditText
+                android:id="@+id/editText_car_registration_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/round_corner_border_shape"
+                android:drawableStart="@drawable/ic_car"
+                android:hint="@string/car_registration"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_distance" />
 
-    <EditText
-        android:id="@+id/editText_stop_address_city_mileage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:hint="City"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_stop_address_city" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_mileage_save"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="60dp"
+                android:background="@drawable/round_corner_purple_gradient_shape"
+                android:padding="10dp"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_car_registration_number" />
 
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,85 +33,68 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mainWave_reportActivity" />
 
-    <View
-        android:id="@+id/view"
+    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+        android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="65dp"
-        android:background="@drawable/textfield_infobox"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/report_home" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_reportActivity"
+        app:textColorSelected="@color/purple_main" />
 
-    <TextView
-        android:id="@+id/textField_total_time_month"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/total_time_month"
-        android:textColor="@color/purple_main"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <TextView
-        android:id="@+id/textView_total_work_calculated_month"
-        android:layout_width="95dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <TextView
-        android:id="@+id/textField_total_milage_month"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/total_mileage_month"
-        android:textColor="@color/purple_main"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view" />
-
-    <TextView
-        android:id="@+id/textView_total_milage_calculated"
-        android:layout_width="95dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/textView_total_work_calculated_month" />
-
-    <CalendarView
-        android:id="@+id/calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/bg_calendar"
-        android:firstDayOfWeek="2"
-        android:focusedMonthDateColor="@color/purple_500"
-        android:maxDate="12/31/2020"
-        android:minDate="01/01/2020"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/calendarView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textField_hours_worked_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/hours_worked"
+                android:textColor="@color/purple_main"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+            <TextView
+                android:id="@+id/textField_break_taken_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/break_taken"
+                android:textColor="@color/purple_main"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textField_hours_worked_report" />
+
+            <TextView
+                android:id="@+id/textField_overtime_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/overtime"
+                android:textColor="@color/purple_main"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textField_break_taken_report" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
