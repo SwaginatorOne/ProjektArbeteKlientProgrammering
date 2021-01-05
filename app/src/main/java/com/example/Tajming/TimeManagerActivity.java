@@ -36,6 +36,7 @@ public class TimeManagerActivity extends AppCompatActivity
     SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
     SimpleDateFormat dayFormat = new SimpleDateFormat("E, dd MMM", Locale.ENGLISH);
     Date date = new Date();
+
     String userID;
     int countBreakClicks = 0;
     private int seconds = 0;
@@ -93,7 +94,7 @@ public class TimeManagerActivity extends AppCompatActivity
                     String start_Time = timeFormat.format(Calendar.getInstance().getTime());
                     workShift.setStartTime(start_Time);
                     textView_start_time.setText(start_Time);
-                    start_time_calculator = Instant.now();
+                    workShift.setStart_time_calculator(Instant.now());
                     Toast.makeText(TimeManagerActivity.this, "Enjoy your day", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -139,12 +140,8 @@ public class TimeManagerActivity extends AppCompatActivity
                     workShift.setBreakTime(sb);
                     workShift.addToDataBase();
                     textView_stop_time.setText(stop_time);
-                    stop_time_calculator = Instant.now();
-                    timeElapsed = Duration.between(start_time_calculator, stop_time_calculator);
-                    String hms = String.format("%d:%02d:%02d",
-                            timeElapsed.toHours(),
-                            timeElapsed.toMinutes(),
-                            timeElapsed.getSeconds());
+                    workShift.setStop_time_calculator(Instant.now());
+                    String hms = workShift.calculateWorkTimeToString();
                     textView_hours_worked.setText(hms);
                     Toast.makeText(TimeManagerActivity.this, "Good job, enjoy your freedom", Toast.LENGTH_SHORT).show();
                 }
