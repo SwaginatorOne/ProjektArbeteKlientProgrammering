@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.Tajming.WorkShift;
+import com.example.Tajming.WorkShiftManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,6 +27,24 @@ import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public class DAOworkshift {
+
+    private static DAOworkshift instance = null;
+
+    private DAOworkshift()
+    {
+        firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        userID = firebaseAuth.getCurrentUser().getUid();
+    }
+
+    public static DAOworkshift getInstance()
+    {
+        if (instance == null) {
+            instance = new DAOworkshift();
+        }
+        return instance ;
+    }
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth firebaseAuth;
     DocumentReference fireStore;

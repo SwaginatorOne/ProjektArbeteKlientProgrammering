@@ -57,6 +57,11 @@ public class WorkShift {
     }
 
     public Map<String, Object> getHashMap(){
+        workShift.put("user", user);
+        workShift.put("start_time", startTime);
+        workShift.put("end_time", endTime);
+        workShift.put("date", date);
+        workShift.put("break", breakTime);
         return workShift;
     }
 
