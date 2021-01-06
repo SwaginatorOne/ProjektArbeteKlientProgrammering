@@ -32,178 +32,162 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mainWave_profileManagerActivity" />
 
-    <TextView
-        android:id="@+id/textField_current_day_time"
+    <TextClock
+        android:id="@+id/textClock_current_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="currentDay"
         android:textColor="@color/purple_main"
-        android:textSize="25dp"
+        android:textSize="50dp"
+        android:format12Hour="kk:mm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_Manager_home" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_start_time"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/round_corner_purple_gradient_shape"
-        android:text="@string/start_time"
-        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity" />
 
-    <TextView
-        android:id="@+id/textView_start_break"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_day_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/round_corner_border_shape"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="18dp"
+        android:drawableStart="@drawable/ic_play_arrow"
+        android:padding="10dp"
+        android:text="@string/start_day"
+        android:textColor="@color/purple_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_starttime" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_start_break"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/round_corner_purple_gradient_shape"
+        android:id="@+id/button_continue_day_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_corner_border_shape"
+        android:drawableStart="@drawable/ic_play_arrow"
+        android:padding="10dp"
+        android:text="@string/continue_day"
+        android:textColor="@color/purple_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_break_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_corner_border_shape"
+        android:drawableStart="@drawable/ic_pause"
+        android:padding="10dp"
         android:text="@string/start_break"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_main"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_start_time" />
-
-    <TextView
-        android:id="@+id/textView_starttime"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="60dp"
-        android:background="@drawable/round_corner_border_shape"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_stop_time"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/round_corner_purple_gradient_shape"
-        android:text="@string/stop_time"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_start_break" />
-
-    <TextView
-        android:id="@+id/textView_stop_time"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
+        android:id="@+id/button_stop_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/round_corner_border_shape"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="20dp"
+        android:drawableStart="@drawable/ic_stop"
+        android:padding="10dp"
+        android:text="@string/end_day"
+        android:textColor="@color/purple_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_start_break" />
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/textfield_infobox"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="current"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textClock_current_time"
+        app:layout_constraintEnd_toStartOf="@+id/textClock_current_time"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_stop_time" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity" />
 
     <TextView
-        android:id="@+id/textField_hours_worked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="time"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textClock_current_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toEndOf="@+id/textClock_current_time"
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity" />
+
+    <TextView
+        android:id="@+id/textField_start_working_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="@string/start_work_time"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
+
+    <TextView
+        android:id="@+id/textField_show_start_working_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:hint="00:00"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textField_start_working_time"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
+
+    <TextView
+        android:id="@+id/textField_break_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/start_break_time"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField_start_working_time" />
+
+    <TextView
+        android:id="@+id/textField_show_break_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/hours_worked"
-        android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
-
-    <TextView
-        android:id="@+id/textView_hours_worked_calculated"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
+        android:layout_marginTop="180dp"
         android:hint="00:00"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintStart_toEndOf="@+id/textField_break_time"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
 
     <TextView
-        android:id="@+id/textField_break_taken"
+        android:id="@+id/textField_status_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/break_taken"
-        android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/textField_hours_worked" />
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="324dp"
+        android:text="@string/current_status"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
 
     <TextView
-        android:id="@+id/textView_break_taken_calculated"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/textView_hours_worked_calculated" />
-
-    <TextView
-        android:id="@+id/textField_overtime"
+        android:id="@+id/textField_show_status_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/overtime"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="324dp"
+        android:text="day not started"
         android:textColor="@color/purple_main"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/textField_break_taken" />
-
-    <TextView
-        android:id="@+id/textView_overtime_calculated"
-        android:layout_width="95dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:hint="00:00"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/textView_break_taken_calculated" />
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@+id/textField_status_time"
+        app:layout_constraintTop_toBottomOf="@+id/textClock_current_time" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
