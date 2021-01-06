@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ReportTimeActivity extends AppCompatActivity {
+public class ReportTimeActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_time);
         Intent intent = getIntent();
@@ -18,6 +20,5 @@ public class ReportTimeActivity extends AppCompatActivity {
         int dayOfMonth = intent.getIntExtra("dayOfMonth", 0);
         TextView pickedDate = (TextView) findViewById(R.id.textField_picked_date);
         pickedDate.setText(year + ":" + month +":" + dayOfMonth);
-
     }
 }

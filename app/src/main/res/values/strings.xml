@@ -7,9 +7,14 @@
     <string name="mileage">Mileage</string>
     <string name="time">Time</string>
     <string name="profile">Profile</string>
-    <string name="start_time">Start</string>
-    <string name="start_break">Break</string>
+    <string name="start_work_time">Started working @</string>
+    <string name="start_break_time">Current break</string>
+    <string name="start_break">Take break</string>
+    <string name="start_day">Begin day</string>
+    <string name="current_status">Current status</string>
     <string name="stop_time">Stop</string>
+    <string name="end_day">End day</string>
+    <string name="continue_day">Continue day</string>
     <string name="report">Report</string>
     <string name="hours_worked">Hours worked:</string>
     <string name="break_taken">Break taken:</string>
