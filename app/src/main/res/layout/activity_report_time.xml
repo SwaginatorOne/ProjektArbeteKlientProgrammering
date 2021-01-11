@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileManagerActivity">
+    tools:context=".ReportActivity">
 
     <ImageView
-        android:id="@+id/mainWave_profileManagerActivity"
+        android:id="@+id/mainWave_reportActivity"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:cropToPadding="false"
@@ -16,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent=".3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,140 +31,148 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/mainWave_reportActivity" />
 
-    <TextView
-        android:id="@+id/textField_picked_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purple_main"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_edit_shift"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_bar_bottom_report"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_edit_shift"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:background="@drawable/round_corner_purple_gradient_shape"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Edit working shift"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TimePicker
-        android:id="@+id/timePicker_starttime"
-        android:layout_width="220dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:timePickerMode="spinner"
-        app:layout_constraintBottom_toTopOf="@+id/timePicker_endtime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.847" />
+        app:layout_constraintTop_toBottomOf="@+id/mainWave_reportActivity">
 
-    <TimePicker
-        android:id="@+id/timePicker_endtime"
-        android:layout_width="220dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:timePickerMode="spinner"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTime_edit_break"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.937" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView_endTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/new_end_time"
-        app:layout_constraintBottom_toTopOf="@+id/textView_break"
-        app:layout_constraintEnd_toStartOf="@+id/timePicker_endtime"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.906" />
 
-    <TextView
-        android:id="@+id/textView_break"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/new_break_time"
-        app:layout_constraintBottom_toTopOf="@+id/textView_milage"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTime_edit_break"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.856" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
 
-    <EditText
-        android:id="@+id/editTextTime_edit_break"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber_edit_milage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.93" />
+                <TextView
+                    android:id="@+id/textField_start_working_time_edit"
+                    android:text="@string/start_work_time"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
 
-    <EditText
-        android:id="@+id/editTextNumber_edit_milage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.744" />
+                <TimePicker
+                    android:timePickerMode="spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"/>
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView_starttime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/new_start_time"
-        app:layout_constraintBottom_toTopOf="@+id/textView_endTime"
-        app:layout_constraintEnd_toStartOf="@+id/timePicker_starttime"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.527" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
 
-    <TextView
-        android:id="@+id/textView_milage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/new_mileage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber_edit_milage"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainWave_profileManagerActivity"
-        app:layout_constraintVertical_bias="0.747" />
+                <TextView
+                    android:id="@+id/textField_end_working_time_edit"
+                    android:text="@string/stop_work_time"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
 
+                <TimePicker
+                    android:timePickerMode="spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textField_start_break_time_edit"
+                    android:text="@string/start_break"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TimePicker
+                    android:timePickerMode="spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textField_stop_break_time_edit"
+                    android:text="@string/stop_break_time"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TimePicker
+                    android:timePickerMode="spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_edit_day_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/round_corner_border_shape"
+                android:text="@string/edit_day"
+                android:textColor="@color/purple_main"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
