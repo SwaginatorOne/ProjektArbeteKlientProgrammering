@@ -7,7 +7,7 @@
     tools:context=".ReportActivity">
 
     <devs.mulham.horizontalcalendar.HorizontalCalendarView
-    android:id="@+id/calendarView"
+    android:id="@+id/calendarViewDay"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
@@ -23,7 +23,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/calendarView">
+    app:layout_constraintTop_toBottomOf="@+id/calendarViewDay">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:textColor="@color/purple_main"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            app:layout_constraintTop_toBottomOf="@+id/calendarViewDay" />
 
          <TextView
             android:id="@+id/textField_break_taken_report"
@@ -66,6 +66,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textField_break_taken_report" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_edit_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_corner_border_shape"
+            android:text="@string/edit_day"
+            android:textColor="@color/purple_main"
+            />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
