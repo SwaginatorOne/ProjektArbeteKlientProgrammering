@@ -1,4 +1,4 @@
-package com.example.Tajming;
+package com.example.Tajming.java;
 
 import android.os.Build;
 import android.util.Log;

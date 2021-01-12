@@ -1,4 +1,4 @@
-package com.example.Tajming;
+package com.example.Tajming.java;
 
 import com.example.Tajming.dao.DAOuser;
 
