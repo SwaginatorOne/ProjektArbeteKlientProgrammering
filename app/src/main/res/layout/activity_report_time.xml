@@ -66,6 +66,7 @@
                     android:gravity="center"/>
 
                 <TimePicker
+                    android:id="@+id/timePicker_start_working"
                     android:timePickerMode="spinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -91,6 +92,7 @@
                     android:gravity="center"/>
 
                 <TimePicker
+                    android:id="@+id/timePicker_stop_working"
                     android:timePickerMode="spinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -116,6 +118,7 @@
                     android:gravity="center"/>
 
                 <TimePicker
+                    android:id="@+id/timePicker_start_break"
                     android:timePickerMode="spinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -141,6 +144,7 @@
                     android:gravity="center"/>
 
                 <TimePicker
+                    android:id="@+id/timePicker_stop_break"
                     android:timePickerMode="spinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
