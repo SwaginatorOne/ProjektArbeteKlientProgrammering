@@ -42,7 +42,7 @@ public class ReportTimeActivity extends AppCompatActivity
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute)
             {
-                date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
+               // date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
             }
         });
 
@@ -51,7 +51,7 @@ public class ReportTimeActivity extends AppCompatActivity
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute)
             {
-                date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
+              //  date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
             }
         });
 
@@ -60,7 +60,7 @@ public class ReportTimeActivity extends AppCompatActivity
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute)
             {
-                date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
+              //  date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
             }
         });
 
@@ -69,7 +69,7 @@ public class ReportTimeActivity extends AppCompatActivity
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute)
             {
-                date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
+              //  date = String.valueOf(hourOfDay).toString() + ":" + String.valueOf(minute).toString();
             }
         });
 
