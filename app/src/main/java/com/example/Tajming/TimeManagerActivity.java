@@ -87,6 +87,7 @@ public class TimeManagerActivity extends AppCompatActivity
 
         button_start_day.setOnClickListener(new View.OnClickListener()
         {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v)
@@ -156,6 +157,7 @@ public class TimeManagerActivity extends AppCompatActivity
 
         button_end_day.setOnClickListener(new View.OnClickListener()
         {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v)
@@ -176,7 +178,7 @@ public class TimeManagerActivity extends AppCompatActivity
                     String stop_time = timeFormat.format(Calendar.getInstance().getTime());
                     workShift.setEndTime(stop_time);
                     workShift.setBreakTime(sb);
-                    workShift.addToDataBase();
+                   // workShift.addToDataBase();
                     workShift.setStop_time_calculator(Instant.now());
                     Toast.makeText(TimeManagerActivity.this, "Good job, enjoy your freedom", Toast.LENGTH_SHORT).show();
                 }

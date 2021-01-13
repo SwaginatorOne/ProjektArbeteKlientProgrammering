@@ -53,13 +53,14 @@ public class WorkShift {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setStartTime(String startTime) {
         this.startTime = startTime;
-        start_time_calculator = Instant.parse(startTime);
+        //start_time_calculator = Instant.parse(startTime);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setEndTime(String endTime) {
         this.endTime = endTime;
-        end_time_calculator = Instant.parse(endTime);
+        //start_time_calculator = Instant.now(endTime);
+        //end_time_calculator = Instant.parse(endTime);
     }
 
     public void setDate(String date) {
