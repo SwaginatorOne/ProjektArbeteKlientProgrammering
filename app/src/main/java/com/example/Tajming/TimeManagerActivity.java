@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -103,7 +104,7 @@ public class TimeManagerActivity extends AppCompatActivity
                     String start_Time = timeFormat.format(Calendar.getInstance().getTime());
                     workShift.setStartTime(start_Time);
                     textView_show_started_working.setText(start_Time);
-                    workShift.setStart_time_calculator(Instant.now());
+                    workShift.setStart_time_calculator(LocalTime.now());
                     Toast.makeText(TimeManagerActivity.this, "Enjoy your day", Toast.LENGTH_SHORT).show();
 
                 }
@@ -179,7 +180,7 @@ public class TimeManagerActivity extends AppCompatActivity
                     workShift.setEndTime(stop_time);
                     workShift.setBreakTime(sb);
                    // workShift.addToDataBase();
-                    workShift.setStop_time_calculator(Instant.now());
+                    workShift.setStop_time_calculator(LocalTime.now());
                     Toast.makeText(TimeManagerActivity.this, "Good job, enjoy your freedom", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -13,6 +13,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,9 +27,8 @@ public class WorkShift {
     private String breakTime;
     private Map<String, Object> workShift;
     FirebaseFirestore db;
-    private Instant start_time_calculator;
-    private Instant end_time_calculator;
-    private Instant totalTimeInstant;
+    private LocalTime start_time_calculator;
+    private LocalTime end_time_calculator;
     private String totalTimeString;
     private Duration timeElapsed;
 
@@ -41,9 +42,9 @@ public class WorkShift {
         this.user = user;
         this. date = date;
         this.startTime = startTime;
-        start_time_calculator = Instant.parse(startTime);
+        start_time_calculator = LocalTime.parse(startTime);
         this. endTime = endTime;
-        end_time_calculator = Instant.parse(endTime);
+        end_time_calculator = LocalTime.parse(endTime);
         this.breakTime = breakTime;
     }
     public void setUser(String user) {
@@ -53,6 +54,7 @@ public class WorkShift {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setStartTime(String startTime) {
         this.startTime = startTime;
+
         //start_time_calculator = Instant.parse(startTime);
     }
 
@@ -98,19 +100,19 @@ public class WorkShift {
     public String getBreakTime() {
         return breakTime;
     }
-    public Instant getStart_time_calculator() {
+    public LocalTime getStart_time_calculator() {
         return start_time_calculator;
     }
 
-    public void setStart_time_calculator(Instant start_time_calculator) {
+    public void setStart_time_calculator(LocalTime start_time_calculator) {
         this.start_time_calculator = start_time_calculator;
     }
 
-    public Instant getStop_time_calculator() {
+    public LocalTime getStop_time_calculator() {
         return end_time_calculator;
     }
 
-    public void setStop_time_calculator(Instant stop_time_calculator) {
+    public void setStop_time_calculator(LocalTime stop_time_calculator) {
         this.end_time_calculator = stop_time_calculator;
     }
 
