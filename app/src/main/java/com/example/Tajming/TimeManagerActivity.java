@@ -39,26 +39,20 @@ public class TimeManagerActivity extends AppCompatActivity
     int countBreakClicks = 0;
     private int seconds = 0;
     private Boolean running = false;
-    private int totalBreakSec;
-    private int totalBreakMin;
-    private int totalBreakHour;
     private String sb;
     String userID;
     FirebaseAuth firebaseAuth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_manager);
-
         if (savedInstanceState != null)
         {
             seconds = savedInstanceState.getInt("seconds");
             running = savedInstanceState.getBoolean("running");
         }
-
         button_start_day = findViewById(R.id.button_start_day_time);
         button_continue_day = findViewById(R.id.button_continue_day_time);
         button_start_break = findViewById(R.id.button_start_break_time);
@@ -117,6 +111,8 @@ public class TimeManagerActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                String break_start_Time = timeFormat.format(Calendar.getInstance().getTime());
+                workShift.setBreakStartTime(break_start_Time);
                 button_start_day.setVisibility(View.GONE);
                 button_continue_day.setVisibility(View.VISIBLE);
                 button_end_day.setVisibility(View.VISIBLE);

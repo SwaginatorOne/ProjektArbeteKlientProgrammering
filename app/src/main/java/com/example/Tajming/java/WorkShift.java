@@ -18,19 +18,25 @@ import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class WorkShift {
 
     private String user;
     private String date;
     private String startTime;
     private String endTime;
+    private String breakStartTime;
+    private String breakEndTime;
     private String breakTime;
     private Map<String, Object> workShift;
     FirebaseFirestore db;
     private LocalTime start_time_calculator;
     private LocalTime end_time_calculator;
+    private LocalTime break_start_time_calculator;
+    private LocalTime break_end_time_calculator;
     private String totalTimeString;
     private Duration timeElapsed;
+    private Duration totalBreakTime = Duration.ZERO;
 
     public WorkShift(){
        db = FirebaseFirestore.getInstance();
@@ -60,7 +66,6 @@ public class WorkShift {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setEndTime(String endTime) {
         this.endTime = endTime;
-        //start_time_calculator = Instant.now(endTime);
         end_time_calculator = LocalTime.parse(endTime);
     }
 
@@ -114,10 +119,24 @@ public class WorkShift {
     public void setStop_time_calculator(LocalTime stop_time_calculator) {
         this.end_time_calculator = stop_time_calculator;
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void setBreakStartTime(String startBreakTime){
+        this.break_start_time_calculator = LocalTime.parse(startBreakTime);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void setBreakEndTime(String endBreakTime){
+        this.break_end_time_calculator = LocalTime.parse(endBreakTime);
+        calculateBreak();
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void calculateBreak(){
+        totalBreakTime.plus(Duration.between(break_start_time_calculator, break_end_time_calculator));
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String calculateWorkTimeToString(){
         timeElapsed = Duration.between(start_time_calculator, end_time_calculator);
+        timeElapsed.minus(totalBreakTime);
         String time = String.format("%d:%02d:%02d",
                 timeElapsed.toHours(),
                 timeElapsed.toMinutes(),
