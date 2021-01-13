@@ -102,7 +102,7 @@ public class WorkShift {
     }
 
     public String getBreakTime() {
-        return breakTime;
+        return totalBreakTime.toString();
     }
     public LocalTime getStart_time_calculator() {
         return start_time_calculator;

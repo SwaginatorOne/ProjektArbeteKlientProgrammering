@@ -48,7 +48,6 @@ public class MonthFragment extends Fragment
             @Override
             public void onDateSelected(Calendar date, int position)
             {
-                //do something
             }
         });
         return rootView;

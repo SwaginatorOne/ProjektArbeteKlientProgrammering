@@ -1,25 +1,33 @@
 package com.example.Tajming;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Tajming.java.WorkShift;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class TimeManagerActivity extends AppCompatActivity
 {
@@ -42,7 +50,9 @@ public class TimeManagerActivity extends AppCompatActivity
     private String sb;
     String userID;
     FirebaseAuth firebaseAuth;
+    FirebaseFirestore db;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -76,6 +86,7 @@ public class TimeManagerActivity extends AppCompatActivity
         workShift.setDate(current_day);
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
+        db = FirebaseFirestore.getInstance();
         workShift.setUser(userID);
 
         runTimer();
@@ -168,15 +179,16 @@ public class TimeManagerActivity extends AppCompatActivity
                 textView_show_started_working.setVisibility(View.GONE);
                 textView_show_break.setVisibility(View.GONE);
                 textField_show_status.setText("Done working for today");
+                String stop_time = timeFormat.format(Calendar.getInstance().getTime());
+                workShift.setEndTime(stop_time);
+                workShift.setStop_time_calculator(LocalTime.now());
+                addToDb(workShift);
 
-                if (currentDay == true)
+                if (currentDay)
                 {
                    currentDay = false;
-                    String stop_time = timeFormat.format(Calendar.getInstance().getTime());
-                    workShift.setEndTime(stop_time);
-                    workShift.setBreakTime(sb);
-                   // workShift.addToDataBase();
-                    workShift.setStop_time_calculator(LocalTime.now());
+
+
                     Toast.makeText(TimeManagerActivity.this, "Good job, enjoy your freedom", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -212,5 +224,29 @@ public class TimeManagerActivity extends AppCompatActivity
                 handler.postDelayed(this, 1000);
             }
         });
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addToDb(WorkShift workShift){
+        Map<String, Object> ws = new HashMap<String, Object>();
+        ws.put("user", userID);
+        ws.put("start_time", workShift.getStartTime());
+        ws.put("end_time", workShift.getEndTime());
+        ws.put("date", date);
+        ws.put("break", workShift.getBreakTime());
+
+        db.collection("work_shifts")
+                .add(ws)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("TAG","DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error adding document", e);
+                    }
+                });
     }
 }

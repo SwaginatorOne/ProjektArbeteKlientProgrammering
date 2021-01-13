@@ -162,17 +162,6 @@ public class ProfileManagerActivity extends AppCompatActivity
                         Toast.makeText(ProfileManagerActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
-
-
-
-
-
-
-
-
-
             }
         });
     }

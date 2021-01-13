@@ -71,17 +71,17 @@ public class DAOmilage {
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("TAG", document.getId() + " => " + document.getData());
-                        Milage milage = new Milage(document.getString("user"),document.getString("date"),
-                                document.getString("start_location"), document.getString("end_location"),
-                                document.getString("reg_number"), Integer.parseInt(document.getString("kilometer")));
-                        milageManager.addMilage(milage);
-                    }
-                } else {
-                    Log.d("TAG", "Error getting documents: ", task.getException());
-                }
+              //  if (task.isSuccessful()) {
+                //    for (QueryDocumentSnapshot document : task.getResult()) {
+                  //      Log.d("TAG", document.getId() + " => " + document.getData());
+                    //    Milage milage = new Milage(document.getString("user"), document.getString("date")),
+                      //          document.getString("start_location"), document.getString("end_location"),
+                        //        document.getString("reg_number"), Integer.parseInt(document.getString("kilometer")));
+                     //   milageManager.addMilage(milage);
+                   // }
+               // } else {
+                 //   Log.d("TAG", "Error getting documents: ", task.getException());
+                //}
             }
         });
         return milageManager;
@@ -98,10 +98,10 @@ public class DAOmilage {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d("TAG", document.getId() + " => " + document.getData());
-                        Milage milage = new Milage(document.getString("user"),document.getString("date"),
-                                document.getString("start_location"), document.getString("end_location"),
-                                document.getString("reg_number"), Integer.parseInt(document.getString("kilometer")));
-                        milageManager.addMilage(milage);
+                       // Milage milage = new Milage(document.getString("user"),document.getString("date"),
+                         //       document.getString("start_location"), document.getString("end_location"),
+                           //     document.getString("reg_number"), Integer.parseInt(document.getString("kilometer")));
+                       // milageManager.addMilage(milage);
                     }
                 } else {
                     Log.d("TAG", "Error getting documents: ", task.getException());
