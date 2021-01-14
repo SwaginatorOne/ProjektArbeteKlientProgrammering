@@ -30,42 +30,89 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textField_hours_worked_report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/hours_worked"
-                android:textColor="@color/purple_main"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendarViewDay" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/textField_break_taken_report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/break_taken"
-                android:textColor="@color/purple_main"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textField_hours_worked_report" />
+                <TextView
+                    android:id="@+id/textField_hours_worked_report_week"
+                    android:text="@string/hours_worked"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/textField_overtime_report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/overtime"
-                android:textColor="@color/purple_main"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textField_break_taken_report" />
+                <TextView
+                    android:id="@+id/textField_hours_worked_report_show_week"
+                    android:text="00:00"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textField_break_taken_report_week"
+                    android:text="@string/break_taken"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textField_break_taken_report_show_week"
+                    android:text="00:00"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textField_overtime_taken_report_week"
+                    android:text="@string/overtime"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textField_overtime_taken_report_show_week"
+                    android:text="00:00"
+                    android:textColor="@color/purple_main"
+                    android:layout_width="0dp"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
