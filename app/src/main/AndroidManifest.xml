@@ -9,17 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tajming">
-        <activity android:name=".ReportTimeActivity"></activity>
-        <activity android:name=".ReportActivity" />
-        <activity android:name=".MileageActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".ProfileManagerActivity" />
-        <activity android:name=".TimeManagerActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".ReportTimeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MileageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SignUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProfileManagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TimeManagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".main.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

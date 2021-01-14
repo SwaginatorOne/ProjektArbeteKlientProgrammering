@@ -37,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/purple_main"
+        android:timeZone="Europe/Stockholm"
         android:textSize="50dp"
         android:format12Hour="kk:mm"
         app:layout_constraintEnd_toEndOf="parent"
