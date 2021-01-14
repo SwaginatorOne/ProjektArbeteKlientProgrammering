@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity
         email_login = findViewById(R.id.editText_email_login_main);
         password_login = findViewById(R.id.editText_Password_main);
         button_login = findViewById(R.id.button_login_main);
-        forgot_password = findViewById(R.id.textField_forgot_password_main);
-        new_account = findViewById(R.id.textField_sign_up_main);
+        forgot_password = findViewById(R.id.textView_forgot_password_main);
+        new_account = findViewById(R.id.textView_sign_up_main);
         progressBar_login = findViewById(R.id.progressBar_main);
         firebaseAuth = FirebaseAuth.getInstance();
         progressBar_login.setVisibility(View.INVISIBLE);

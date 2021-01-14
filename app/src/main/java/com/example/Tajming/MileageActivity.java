@@ -51,7 +51,7 @@ public class MileageActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mileage);
-        textView_current_day_mileage = findViewById(R.id.textField_current_day_mileage);
+        textView_current_day_mileage = findViewById(R.id.textView_current_day_mileage);
         String current_day = dayFormat.format(date);
         textView_current_day_mileage.setText(current_day);
 

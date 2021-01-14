@@ -20,7 +20,7 @@
           app:layout_constraintTop_toTopOf="parent" />
 
       <TextView
-          android:id="@+id/textField_welcome"
+          android:id="@+id/textView_welcome"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="20dp"
@@ -37,7 +37,7 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="32dp"
           android:layout_marginEnd="32dp"
-          android:background="@drawable/round_corner_border_grey_shape"
+          android:background="@drawable/shape_round_corner_grey_fill_purple_border"
           android:drawableStart="@drawable/ic_person"
           android:elevation="20dp"
           android:ems="10"
@@ -56,7 +56,7 @@
           android:layout_marginStart="32dp"
           android:layout_marginTop="20dp"
           android:layout_marginEnd="32dp"
-          android:background="@drawable/round_corner_border_grey_shape"
+          android:background="@drawable/shape_round_corner_grey_fill_purple_border"
           android:drawableStart="@drawable/ic_lock"
           android:ems="10"
           android:hint="Password"
@@ -68,7 +68,7 @@
           app:layout_constraintTop_toBottomOf="@+id/editText_email_login_main" />
 
       <TextView
-          android:id="@+id/textField_forgot_password_main"
+          android:id="@+id/textView_forgot_password_main"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="15dp"
@@ -85,7 +85,7 @@
           android:layout_marginStart="50dp"
           android:layout_marginTop="60dp"
           android:layout_marginEnd="50dp"
-          android:background="@drawable/round_corner_purple_gradient_shape"
+          android:background="@drawable/shape_round_corner_purple_gradient"
           android:text="@string/login"
           android:textColor="@color/white"
           app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
           app:layout_constraintTop_toBottomOf="@+id/editText_Password_main" />
 
       <TextView
-          android:id="@+id/textField_sign_up_main"
+          android:id="@+id/textView_sign_up_main"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginBottom="40dp"

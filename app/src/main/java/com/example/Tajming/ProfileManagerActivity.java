@@ -46,10 +46,10 @@ public class ProfileManagerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_manager);
 
-        profile_username = findViewById(R.id.textField_username_profile_manager);
-        profile_phone_number = findViewById(R.id.textField_phone_number_profile_manager);
-        profile_email = findViewById(R.id.textField_email_profile_manager);
-        profile_full_name = findViewById(R.id.textField_full_name_profile_manager);
+        profile_username = findViewById(R.id.editText_username_profile_manager);
+        profile_phone_number = findViewById(R.id.editText_phone_number_profile_manager);
+        profile_email = findViewById(R.id.editText_email_profile_manager);
+        profile_full_name = findViewById(R.id.editText_full_name_profile_manager);
         button_logout = findViewById(R.id.button_logout_profile_manager);
         button_edit_profile = findViewById(R.id.button_edit_profile);
         button_save_profile = findViewById(R.id.button_edit_profile_save);
