@@ -4,6 +4,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -27,36 +28,38 @@ public class MilageManager {
         milageList.add(milage);
     }
 
-    public double getTotalMilageMonth(String month){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public double getTotalMilageMonth(LocalDate date){
         totalKilometer = 0;
+        int month = date.getDayOfMonth();
         String monthInDate = null;
-        if (month == "jan"){
+        if (month == 0){
             monthInDate = "Jan";
-        }else if(month == "feb"){
+        }else if(month == 1){
             monthInDate = "Feb";
-        }else if(month == "mar"){
+        }else if(month == 2){
             monthInDate = "Mar";
-        }else if(month == "apr"){
+        }else if(month == 3){
             monthInDate = "Apr";
-        }else if(month == "may"){
+        }else if(month == 4){
             monthInDate = "May";
-        }else if(month == "jun"){
+        }else if(month == 5){
             monthInDate = "Jun";
-        }else if(month == "jul"){
+        }else if(month == 6){
             monthInDate = "Jul";
-        }else if(month == "aug"){
+        }else if(month == 7){
             monthInDate = "Aug";
-        }else if(month == "sep"){
+        }else if(month == 8){
             monthInDate = "Sep";
-        }else if(month == "oct"){
+        }else if(month == 9){
             monthInDate = "Oct";
-        }else if(month == "nov"){
+        }else if(month == 10){
             monthInDate = "Nov";
-        }else if(month == "dec"){
+        }else if(month == 11){
             monthInDate = "Dec";
         }
         for(Milage milage : milageList){
-            if(milage.getDate().substring(8) == monthInDate){
+            if(milage.getDate().substring(0,3) == monthInDate){
                 totalKilometer = totalKilometer + milage.getKilometer();
             }
         }

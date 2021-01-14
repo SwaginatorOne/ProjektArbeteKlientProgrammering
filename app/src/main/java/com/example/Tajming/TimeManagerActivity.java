@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,6 +44,7 @@ public class TimeManagerActivity extends AppCompatActivity
     SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
     SimpleDateFormat dayFormat = new SimpleDateFormat("E, dd MMM", Locale.ENGLISH);
     Date date = new Date();
+    LocalDate localDate;
     boolean currentDay = false;
     int countBreakClicks = 0;
     private int seconds = 0;
@@ -80,6 +82,8 @@ public class TimeManagerActivity extends AppCompatActivity
         textView_started_break.setVisibility(View.GONE);
         textView_show_started_working.setVisibility(View.GONE);
         textView_show_break.setVisibility(View.GONE);
+
+        localDate = localDate.now();
 
         String current_day = dayFormat.format(date);
         WorkShift workShift = new WorkShift();

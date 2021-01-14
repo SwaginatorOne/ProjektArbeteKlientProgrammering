@@ -9,6 +9,7 @@ import com.example.Tajming.java.WorkShift;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -38,31 +39,31 @@ public class WorkShiftManager {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public String getTotalTimeMonth(String month){
+    public String getTotalTimeMonth(int month){
         String monthInDate = null;
-        if (month == "jan"){
+        if (month == 0){
             monthInDate = "Jan";
-        }else if(month == "feb"){
+        }else if(month == 1){
             monthInDate = "Feb";
-        }else if(month == "mar"){
+        }else if(month == 2){
             monthInDate = "Mar";
-        }else if(month == "apr"){
+        }else if(month == 3){
             monthInDate = "Apr";
-        }else if(month == "may"){
+        }else if(month == 4){
             monthInDate = "May";
-        }else if(month == "jun"){
+        }else if(month == 5){
             monthInDate = "Jun";
-        }else if(month == "jul"){
+        }else if(month == 6){
             monthInDate = "Jul";
-        }else if(month == "aug"){
+        }else if(month == 7){
             monthInDate = "Aug";
-        }else if(month == "sep"){
+        }else if(month == 8){
             monthInDate = "Sep";
-        }else if(month == "oct"){
+        }else if(month == 9){
             monthInDate = "Oct";
-        }else if(month == "nov"){
+        }else if(month == 10){
             monthInDate = "Nov";
-        }else if(month == "dec"){
+        }else if(month == 11){
             monthInDate = "Dec";
         }
 
