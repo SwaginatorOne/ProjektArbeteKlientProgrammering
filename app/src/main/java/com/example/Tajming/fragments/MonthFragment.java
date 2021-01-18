@@ -11,22 +11,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.Tajming.R;
 import com.example.Tajming.java.WorkShift;
 import com.example.Tajming.java.WorkShiftManager;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
@@ -34,10 +37,20 @@ import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 
 public class MonthFragment extends Fragment
 {
-    FirebaseFirestore db;
-    FirebaseAuth firebaseAuth;
-    String userID;
+    private FirebaseFirestore db;
+    private CollectionReference ref;
+    private FirebaseAuth firebaseAuth;
 
+    private String monthTime;
+    private String breakTime;
+
+    private String userID;
+    private TextView totalTimeMonth;
+    private TextView totalBreakMonth;
+    private HorizontalCalendar horizontalCalendar;
+    WorkShiftManager workShiftManager;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -52,9 +65,49 @@ public class MonthFragment extends Fragment
 
         db = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
+        ref  = db.collection("work_shifts");
         userID = firebaseAuth.getCurrentUser().getUid();
+        totalTimeMonth = rootView.findViewById(R.id.textField_hours_worked_report_show_month);
+        totalBreakMonth = rootView.findViewById(R.id.textField_break_taken_report_show_month);
+        workShiftManager = new WorkShiftManager();
+        List<WorkShift> ws = new ArrayList<WorkShift>();
 
-        HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(rootView, R.id.calendarViewMonth)
+        db.collection("work_shifts")
+               .whereEqualTo("user", userID)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot documentSnapshots : task.getResult()) {
+                                Log.d("TAG", documentSnapshots.getId() + " => " + documentSnapshots.getData());
+                                Toast.makeText(getActivity(), "Text!", Toast.LENGTH_SHORT).show();
+                                String user = documentSnapshots.getString("user");
+                                String date = documentSnapshots.get("date").toString();
+                                String start = documentSnapshots.getString("start_time");
+                                String end = documentSnapshots.getString("end_time");
+                                String breakTime = documentSnapshots.getString("break");
+
+                                WorkShift workShift = new WorkShift(user, date,
+                                        start, end, breakTime);
+                                ws.add(workShift);
+                                workShiftManager  = new WorkShiftManager(ws);
+                            }
+                            LocalDate date = LocalDate.now();
+
+                            monthTime = workShiftManager.getTotalTimeMonth(date.getMonthValue());
+                            //breakTime = workShiftManager.getTotalBreakTimeMonth(date.getMonthValue());
+                            totalTimeMonth.setText(monthTime);
+                           // totalBreakMonth.setText(breakTime);
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
+        horizontalCalendar = new HorizontalCalendar.Builder(rootView, R.id.calendarViewMonth)
                 .range(startDate,endDate)
                 .datesNumberOnScreen(3)
                 .mode(HorizontalCalendar.Mode.MONTHS)
@@ -66,44 +119,51 @@ public class MonthFragment extends Fragment
                 .end()
                 .build();
 
+
+
         horizontalCalendar.setCalendarListener(new HorizontalCalendarListener()
         {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDateSelected(Calendar date, int position)
             {
-                WorkShiftManager workShiftManager = getAllWorkShifts();
-                LocalDate localDate = LocalDateTime.ofInstant(date.toInstant(), date.getTimeZone().toZoneId()).toLocalDate();
-                String totalTime = workShiftManager.getTotalTimeMonth(localDate.getMonthValue());
+                List<WorkShift> list = new ArrayList<WorkShift>();
+                db.collection("work_shifts")
+                        .whereEqualTo("user", userID)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @RequiresApi(api = Build.VERSION_CODES.O)
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot documentSnapshots : task.getResult()) {
+                                        Log.d("TAG", documentSnapshots.getId() + " => " + documentSnapshots.getData());
+                                        Toast.makeText(getActivity(), "Text!", Toast.LENGTH_SHORT).show();
+                                        String user = documentSnapshots.getString("user");
+                                        String date = documentSnapshots.get("date").toString();
+                                        String start = documentSnapshots.getString("start_time");
+                                        String end = documentSnapshots.getString("end_time");
+                                        String breakTime = documentSnapshots.getString("break");
 
+                                        WorkShift workShift = new WorkShift(user, date,
+                                                start, end, breakTime);
+                                        list.add(workShift);
+                                        workShiftManager  = new WorkShiftManager(list);
 
+                                    }
+                                    int monthValue = date.get(Calendar.MONTH) +1;
+                                    monthTime = workShiftManager.getTotalTimeMonth(monthValue);
+                                    //breakTime = workShiftManager.getTotalBreakTimeMonth(date.getMonthValue());
+                                    totalTimeMonth.setText(monthTime);
+                                    // totalBreakMonth.setText(breakTime);
+                                } else {
+                                    Log.d("TAG", "Error getting documents: ", task.getException());
+                                }
+                            }
+                        });
             }
+
         });
         return rootView;
-    }
-
-    public WorkShiftManager getAllWorkShifts() {
-        WorkShiftManager workShiftManager = new WorkShiftManager();
-        CollectionReference workShiftRef = db.collection("work_shifts");
-        workShiftRef.whereEqualTo("user", userID);
-        Query query = workShiftRef;
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("TAG", document.getId() + " => " + document.getData());
-                        WorkShift workShift = new WorkShift(document.getString("user"), document.getString("date"),
-                                document.getString("start_time"), document.getString("end_time"),
-                                document.getString("break"));
-                        workShiftManager.addWorkShift(workShift);
-                    }
-                } else {
-                    Log.d("TAG", "Error getting documents: ", task.getException());
-                }
-            }
-        });
-        return workShiftManager;
     }
 }

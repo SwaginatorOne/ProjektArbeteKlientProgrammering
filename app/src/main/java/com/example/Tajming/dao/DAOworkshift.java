@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 public class DAOworkshift {
 
-    private static DAOworkshift instance = null;
+    /*private static DAOworkshift instance = null;
 
     private DAOworkshift()
     {
@@ -137,5 +137,7 @@ public class DAOworkshift {
 
     public String getCurrentUser(){
         return firebaseAuth.getCurrentUser().getUid();
-    }
-}
+   }
+   */
+
+   }

@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class TimeManagerActivity extends AppCompatActivity
 {
@@ -41,8 +42,8 @@ public class TimeManagerActivity extends AppCompatActivity
     TextView textView_show_started_working;
     TextView textView_show_break;
     TextView textField_show_status;
-    SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-    SimpleDateFormat dayFormat = new SimpleDateFormat("E, dd MMM", Locale.ENGLISH);
+    SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+    SimpleDateFormat dayFormat = new SimpleDateFormat("MMM d, yyyy");
     Date date = new Date();
     LocalDate localDate;
     boolean currentDay = false;
@@ -84,6 +85,7 @@ public class TimeManagerActivity extends AppCompatActivity
         textView_show_break.setVisibility(View.GONE);
 
         localDate = localDate.now();
+        timeFormat.setTimeZone(TimeZone.getTimeZone("Europe/Stockholm"));
 
         String current_day = dayFormat.format(date);
         WorkShift workShift = new WorkShift();
@@ -127,7 +129,9 @@ public class TimeManagerActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String break_start_Time = timeFormat.format(Calendar.getInstance().getTime());
+                //System.out.println(break_start_Time);
                 workShift.setBreakStartTime(break_start_Time);
+                System.out.println("HELLP" + workShift.getBreakTimeDur());
                 button_start_day.setVisibility(View.GONE);
                 button_continue_day.setVisibility(View.VISIBLE);
                 button_end_day.setVisibility(View.VISIBLE);
@@ -137,18 +141,9 @@ public class TimeManagerActivity extends AppCompatActivity
                 textField_show_status.setText("Taking a break");
 
                 countBreakClicks++;
-                if (countBreakClicks%2 == 0)
-                {
-                    running = false;
-                  //  totalBreakHour = totalBreakHour + seconds/3600;
-                   // totalBreakMin = totalBreakMin + (seconds%3600)/60;
-                   // totalBreakSec = totalBreakSec + seconds%60;
-                   // sb =totalBreakHour + "h, " +  totalBreakMin + "min, " + totalBreakSec + "sec";
-                }
-                else
-                    {
-                    running = true;
-                }
+
+                running = true;
+
             }
         });
 
@@ -164,6 +159,8 @@ public class TimeManagerActivity extends AppCompatActivity
                 textView_started_break.setVisibility(View.INVISIBLE);
                 textView_show_break.setVisibility(View.INVISIBLE);
                 textField_show_status.setText("Working");
+                String break_end_Time = timeFormat.format(Calendar.getInstance().getTime());
+                workShift.setBreakEndTime(break_end_Time);
             }
         });
 
@@ -186,6 +183,10 @@ public class TimeManagerActivity extends AppCompatActivity
                 String stop_time = timeFormat.format(Calendar.getInstance().getTime());
                 workShift.setEndTime(stop_time);
                 workShift.setStop_time_calculator(LocalTime.now());
+                if(workShift.getBreakTime() == null){
+                    workShift.setBreakStartTime(stop_time);
+                    workShift.setBreakEndTime(stop_time);
+                }
                 addToDb(workShift);
 
                 if (currentDay)
@@ -235,7 +236,7 @@ public class TimeManagerActivity extends AppCompatActivity
         ws.put("user", userID);
         ws.put("start_time", workShift.getStartTime());
         ws.put("end_time", workShift.getEndTime());
-        ws.put("date", date);
+        ws.put("date", workShift.getDate());
         ws.put("break", workShift.getBreakTime());
 
         db.collection("work_shifts")
