@@ -4,10 +4,10 @@
         android:id="@+id/navigation_bar_today"
         android:title="@string/day"/>
 
-    <item
+   <!-- <item
         android:id="@+id/navigation_bar_week"
         android:title="@string/week"/>
-
+-->
     <item
         android:id="@+id/navigation_bar_month"
         android:title="@string/month"/>

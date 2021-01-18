@@ -43,10 +43,10 @@ public class ReportActivity extends AppCompatActivity
                 fragment = new DayFragment();
                 break;
 
-                case R.id.navigation_bar_week:
+                /*case R.id.navigation_bar_week:
                     fragment = new WeekFragment();
                     break;
-
+*/
                 case R.id.navigation_bar_month:
                     fragment = new MonthFragment();
                     break;

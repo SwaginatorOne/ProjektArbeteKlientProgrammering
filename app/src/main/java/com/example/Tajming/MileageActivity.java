@@ -42,6 +42,7 @@ public class MileageActivity extends AppCompatActivity
     String reg;
     String km;
     String userID;
+    String current_day;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore db;
 
@@ -52,7 +53,7 @@ public class MileageActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mileage);
         textView_current_day_mileage = findViewById(R.id.textView_current_day_mileage);
-        String current_day = dayFormat.format(date);
+        current_day = dayFormat.format(date);
         textView_current_day_mileage.setText(current_day);
 
         startLocation = findViewById(R.id.editText_start_address_mileage);
@@ -83,7 +84,8 @@ public class MileageActivity extends AppCompatActivity
                     end = endLocation.getText().toString();
                     reg = regNum.getText().toString();
                     km = kilometer.getText().toString();
-                    Milage milage = new Milage(userID, date, start, end, reg, Integer.parseInt(km));
+
+                    Milage milage = new Milage(userID, current_day, start, end, reg, Integer.parseInt(km));
                     addMilageToDb(milage);
             }
         });

@@ -95,14 +95,16 @@ public class DayFragment extends Fragment
                                         start, end, breakTime);
                                 ws.add(workShift);
                                 workShiftManager  = new WorkShiftManager(ws);
+
                                 System.out.println(workShiftManager.workShiftList.size());
                             }
 
                             String current_day = dayFormat.format(dateE);
                             dayTime = workShiftManager.getTotalTimeDay(current_day);
-                            //breakTime = workShiftManager.getTotalBreakTimeDay(current_day);
-                            //totalBreak.setText(breakTime);
+                            breakTime = workShiftManager.getTotalBreakTimeDay(current_day);
+                            totalBreak.setText(breakTime);
                             totalTime.setText(dayTime);
+                            ws.clear();
                         } else {
                             Log.d("TAG", "Error getting documents: ", task.getException());
                         }
@@ -142,12 +144,15 @@ public class DayFragment extends Fragment
                                         workShiftManager  = new WorkShiftManager(ws);
                                         System.out.println(workShiftManager.workShiftList.size());
                                     }
-                                    SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+
+                                    SimpleDateFormat format1 = new SimpleDateFormat("MMM d, yyyy");
                                     String dayValue = format1.format(date.getTime());
+                                    System.out.println(dayValue);
                                     dayTime = workShiftManager.getTotalTimeDay(dayValue);
-                                    //breakTime = workShiftManager.getTotalBreakTimeDay(current_day);
-                                    //totalBreak.setText(breakTime);
+                                    breakTime = workShiftManager.getTotalBreakTimeDay(dayValue);
+                                    totalBreak.setText(breakTime);
                                     totalTime.setText(dayTime);
+                                   ws.clear();
                                 } else {
                                     Log.d("TAG", "Error getting documents: ", task.getException());
                                 }

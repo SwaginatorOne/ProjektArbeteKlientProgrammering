@@ -82,7 +82,6 @@ public class MonthFragment extends Fragment
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot documentSnapshots : task.getResult()) {
                                 Log.d("TAG", documentSnapshots.getId() + " => " + documentSnapshots.getData());
-                                Toast.makeText(getActivity(), "Text!", Toast.LENGTH_SHORT).show();
                                 String user = documentSnapshots.getString("user");
                                 String date = documentSnapshots.get("date").toString();
                                 String start = documentSnapshots.getString("start_time");
@@ -93,13 +92,13 @@ public class MonthFragment extends Fragment
                                         start, end, breakTime);
                                 ws.add(workShift);
                                 workShiftManager  = new WorkShiftManager(ws);
+
                             }
                             LocalDate date = LocalDate.now();
-
                             monthTime = workShiftManager.getTotalTimeMonth(date.getMonthValue());
-                            //breakTime = workShiftManager.getTotalBreakTimeMonth(date.getMonthValue());
+                            breakTime = workShiftManager.getTotalBreakTimeMonth(date.getMonthValue());
                             totalTimeMonth.setText(monthTime);
-                           // totalBreakMonth.setText(breakTime);
+                            totalBreakMonth.setText(breakTime);
                         } else {
                             Log.d("TAG", "Error getting documents: ", task.getException());
                         }
@@ -138,7 +137,6 @@ public class MonthFragment extends Fragment
                                 if (task.isSuccessful()) {
                                     for (QueryDocumentSnapshot documentSnapshots : task.getResult()) {
                                         Log.d("TAG", documentSnapshots.getId() + " => " + documentSnapshots.getData());
-                                        Toast.makeText(getActivity(), "Text!", Toast.LENGTH_SHORT).show();
                                         String user = documentSnapshots.getString("user");
                                         String date = documentSnapshots.get("date").toString();
                                         String start = documentSnapshots.getString("start_time");
@@ -153,9 +151,9 @@ public class MonthFragment extends Fragment
                                     }
                                     int monthValue = date.get(Calendar.MONTH) +1;
                                     monthTime = workShiftManager.getTotalTimeMonth(monthValue);
-                                    //breakTime = workShiftManager.getTotalBreakTimeMonth(date.getMonthValue());
+                                    breakTime = workShiftManager.getTotalBreakTimeMonth(monthValue);
                                     totalTimeMonth.setText(monthTime);
-                                    // totalBreakMonth.setText(breakTime);
+                                    totalBreakMonth.setText(breakTime);
                                 } else {
                                     Log.d("TAG", "Error getting documents: ", task.getException());
                                 }

@@ -112,6 +112,7 @@ public class WorkShiftManager {
         for(WorkShift workShift:workShiftList){
             if(workShift.getDate().substring(0, 3).equals(monthInDate)) {
                 totalBreakDur = totalBreakDur.plus(workShift.getBreakTimeDur());
+                System.out.println("AAADD : " +totalBreakDur);
             }
         }
         String time = String.format("%d:%02d",
@@ -155,6 +156,19 @@ public class WorkShiftManager {
         String time = String.format("%d:%02d",
                 totalDurr.toHours(),
                 totalDurr.toMinutes());
+        return time;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public String getTotalBreakTimeDay(String date){
+        Duration totalDurBreak = Duration.parse("PT0S");
+        for(WorkShift workShift:workShiftList){
+            if(workShift.getDate().equals(date)) {
+                totalDurBreak = totalDurBreak.plus(workShift.getBreakTimeDur());;
+            }
+        }
+        String time = String.format("%d:%02d",
+                totalDurBreak.toHours(),
+                totalDurBreak.toMinutes());
         return time;
     }
 

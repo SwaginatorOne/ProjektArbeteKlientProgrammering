@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class Milage {
     private String date;
-    private Date datecal;
     private String startLocation;
     private String endLocation;
     private String regNumber;
@@ -17,9 +16,9 @@ public class Milage {
     public Milage(){
 
     }
-    public Milage(String userID, Date date, String startLocation, String endLocation, String regNumber, int kilometer){
+    public Milage(String userID, String date, String startLocation, String endLocation, String regNumber, int kilometer){
         this.userID = userID;
-        this.datecal = date;
+        this.date = date;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
         this.regNumber = regNumber;

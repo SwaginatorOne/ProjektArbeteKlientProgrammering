@@ -115,8 +115,7 @@ public class WorkShift {
         return totalBreakTime;
     }
     public String getBreakTime() {
-        String totTimeSting = totalBreakTime.toHours() + ":" + totalBreakTime.toMinutes();
-        return totTimeSting;
+        return breakTime;
     }
     public LocalTime getStart_time_calculator() {
         return start_time_calculator;
@@ -139,6 +138,7 @@ public class WorkShift {
         this.break_end_time_calculator = LocalTime.parse(endBreakTime);
         totalBreakTime = totalBreakTime.plus(Duration.between(break_start_time_calculator, break_end_time_calculator));
         breakTime = totalBreakTime.toString();
+        System.out.println(breakTime);
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void calculateBreak(){

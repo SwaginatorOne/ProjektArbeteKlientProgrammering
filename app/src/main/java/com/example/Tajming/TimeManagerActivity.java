@@ -131,7 +131,6 @@ public class TimeManagerActivity extends AppCompatActivity
                 String break_start_Time = timeFormat.format(Calendar.getInstance().getTime());
                 //System.out.println(break_start_Time);
                 workShift.setBreakStartTime(break_start_Time);
-                System.out.println("HELLP" + workShift.getBreakTimeDur());
                 button_start_day.setVisibility(View.GONE);
                 button_continue_day.setVisibility(View.VISIBLE);
                 button_end_day.setVisibility(View.VISIBLE);
